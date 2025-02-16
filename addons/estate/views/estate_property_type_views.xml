@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="estate_property_type_view_form" model="ir.ui.view">
+            <field name="name">estate.property.type.form</field>
+            <field name="model">estate.property.type</field>
+            <field name="arch" type="xml">
+                <form string="Property Type">
+                    <sheet>
+                        <div name="button_box" class="oe-button-box">
+                            <button name="%(estate.estate_property_offer_action)d" type="action" class="oe_stat_button" icon="fa-id-card-o">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_value">
+                                        <field name="offer_count"/>
+                                    </span>
+                                    <span class="o_stat_text">Offer(s)</span>
+                                </div>
+                            </button>
+                        </div>
+                        <group>
+                            <field name="name" class="h1" nolabel="1" colspan="2"/>
+                        </group>
+                        <notebook>
+                            <page string="Properties">
+                                <field name="property_ids" type="xml">
+                                    <tree string="Properties">
+                                        <field name="name"/>
+                                        <field name="expected_price"/>
+                                        <field name="state"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="estate_property_type_view_tree" model="ir.ui.view">
+            <field name="name">estate.property.type.tree</field>
+            <field name="model">estate.property.type</field>
+            <field name="arch" type="xml">
+                <tree string="Property Types">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name" class="h2"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="estate_property_type_action" model="ir.actions.act_window">
+            <field name="name">Estate Property Type</field>
+            <field name="res_model">estate.property.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a Property Type
+                </p>
+                <p>
+                    Use Real Estate to find out what residence suits you.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>
