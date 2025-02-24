@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="awesome_dashboard.AwesomeDashboard">
+        <Layout display="{controlPanel: { 'top-right': false, 'bottom-right': false, 'bottom-left': false }}" className="'o_dashboard h-100'">
+            <t t-set-slot="control-panel-create-button">
+                <button t-on-click="openCustomerKanbanView" type="button" class="btn btn-primary" title="Customer">Customer</button>
+                <button t-on-click="openCRM" type="button" class="btn btn-primary" title="Leads">Leads</button>
+            </t>
+            <p>test slot</p>
+<!--            <div class="d-flex flex-wrap">-->
+<!--                <t t-foreach="dashboardStatistics.data" t-as="statistic" t-key="statistic.title">-->
+<!--                    <DashboardItem t-if="statistic.title === 'Shirt orders by size'">-->
+<!--                        <p><t t-esc="statistic.title"/></p>-->
+<!--                        <PieChart data="statistic.quantity"/>-->
+<!--                    </DashboardItem>-->
+<!--                    <DashboardItem t-else="">-->
+<!--                        <p><t t-esc="statistic.title"/></p>-->
+<!--                        <h1 class="text-center text-success"><t t-esc="statistic.quantity"/></h1>-->
+<!--                    </DashboardItem>-->
+<!--                </t>-->
+<!--            </div>-->
+            <div class="d-flex flex-wrap">
+                <t t-foreach="items" t-as="item" t-key="item.id">
+                    <DashboardItem size="item.size || 1">
+                        <t t-set="itemProp" t-value="item.props ? item.props(dashboardStatistics) : {'data': dashboardStatistics}"/>
+                        <t t-component="item.Component" t-props="itemProp" />
+                    </DashboardItem>
+                </t>
+            </div>
+        </Layout>
+    </t>
+
+</templates>
