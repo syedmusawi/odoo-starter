@@ -7,7 +7,6 @@
                 <button t-on-click="openCustomerKanbanView" type="button" class="btn btn-primary" title="Customer">Customer</button>
                 <button t-on-click="openCRM" type="button" class="btn btn-primary" title="Leads">Leads</button>
             </t>
-            <p>test slot</p>
 <!--            <div class="d-flex flex-wrap">-->
 <!--                <t t-foreach="dashboardStatistics.data" t-as="statistic" t-key="statistic.title">-->
 <!--                    <DashboardItem t-if="statistic.title === 'Shirt orders by size'">-->

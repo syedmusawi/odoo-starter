@@ -13,14 +13,11 @@ export class PieChart extends Component {
 
     setup() {
         this.canvasRef = useRef("canvas");
-        this.chart = null;
 
         onWillStart(() => loadJS(["/web/static/lib/Chart/Chart.js"]));
         useEffect(() => this.renderChart());
         onWillUnmount(() => {
-            if (this.chart) {
-                this.chart.destroy();
-            }
+            this.chart.destroy();
         });
     }
 
