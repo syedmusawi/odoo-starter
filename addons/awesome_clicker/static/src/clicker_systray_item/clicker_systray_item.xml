@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="awesome_clicker.clicker_systray_item">
+        <div class="pt-2 d-inline-block">
+            <span class="me-2 text-white">Clicks: <ClickerValue/></span>
+<!--             <span class="me-2 text-white">Clicks: <t t-esc="clicker.state.clicks"/></span>-->
+<!--             <button id="clicker" class="btn btn-secondary" t-on-click="increment">-->
+<!--                 <i class="fa fa-plus"/>-->
+<!--             </button>-->
+            <button class="btn btn-secondary" t-on-click="openClientAction">Open</button>
+         </div>
+    </t>
+
+</templates>
